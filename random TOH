@@ -1,0 +1,62 @@
+local coregui = game:GetService("CoreGui")
+
+if coregui:FindFirstChild("ToraScript") then
+    coregui.ToraScript:Destroy()
+end
+
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/liebertsx/Tora-Library/main/src/librarynew", true))()
+local gear = game:GetService("ReplicatedStorage").Assets.Gear
+
+local plr = game.Players.LocalPlayer
+
+
+local gui = lib:CreateWindow("beertje TOH")
+
+gui:AddLabel({
+    text = "get gears",
+})
+
+gui:AddButton({
+    text = "get Fusion coil",
+    callback = function()
+        pcall(function()
+
+
+for i, gears in pairs(gear:GetChildren()) do
+
+if gears.Name == "fusion" then
+local clonedfusion = gears:Clone()
+clonedfusion.Parent = plr.Backpack
+end
+end
+            
+            
+            
+            
+        end  )
+      end
+})
+
+gui:AddButton({
+    text = "Get Bomb",
+    callback = function()
+        pcall (function()
+            
+            for i, gears in pairs(gear:GetChildren()) do
+
+if gears.Name == "bomb" then
+local clonedfusion = gears:Clone()
+clonedfusion.Parent = plr.Backpack
+end
+end
+            
+        end)
+        end
+    
+    
+    
+    
+    
+})
+
+lib:Init()
